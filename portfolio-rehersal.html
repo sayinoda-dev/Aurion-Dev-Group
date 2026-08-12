@@ -1,0 +1,1182 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurion — Web Development Studio</title>
+    <meta
+      name="description"
+      content="Aurion Web Developers Group — premium websites, web applications and digital experiences."
+    />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+      :root {
+        --bg: #08090c;
+        --surface: #101217;
+        --surface2: #15171d;
+        --text: #f5f5f2;
+        --muted: #9b9da6;
+        --line: rgba(255, 255, 255, 0.09);
+        --accent: #d9ff52;
+        --accent2: #a7d92f;
+        --max: 1180px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+      button {
+        cursor: pointer;
+      }
+      .container {
+        width: min(var(--max), 92%);
+        margin: auto;
+      }
+      body:before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: -2;
+        background:
+          radial-gradient(
+            circle at 85% 10%,
+            rgba(217, 255, 82, 0.12),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at 10% 60%,
+            rgba(90, 100, 255, 0.08),
+            transparent 28%
+          );
+      }
+      .grid-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -3;
+        opacity: 0.28;
+        pointer-events: none;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.035) 1px,
+            transparent 1px
+          );
+        background-size: 70px 70px;
+        mask-image: linear-gradient(to bottom, black, transparent 80%);
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 50;
+        padding: 18px 0;
+      }
+      .nav {
+        height: 64px;
+        border: 1px solid var(--line);
+        background: rgba(8, 9, 12, 0.78);
+        backdrop-filter: blur(20px);
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 18px 0 22px;
+      }
+      .logo {
+        font-family: "Space Grotesk";
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .navlinks {
+        display: flex;
+        gap: 30px;
+      }
+      .navlinks a {
+        font-size: 0.9rem;
+        color: var(--muted);
+        transition: 0.25s;
+      }
+      .navlinks a:hover,
+      .navlinks a.active {
+        color: var(--text);
+      }
+      .nav-cta {
+        background: var(--accent);
+        color: #10120a;
+        padding: 11px 17px;
+        border-radius: 11px;
+        font-weight: 700;
+      }
+      .menu {
+        display: none;
+        background: none;
+        border: 0;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 145px 0 90px;
+        position: relative;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 70px;
+        align-items: center;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        color: #cdd0d8;
+        font-size: 0.78rem;
+        border: 1px solid var(--line);
+        padding: 8px 12px;
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.025);
+        margin-bottom: 25px;
+      }
+      .status {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 16px var(--accent);
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: "Space Grotesk", sans-serif;
+      }
+      h1 {
+        font-size: clamp(4rem, 8vw, 7.7rem);
+        line-height: 0.88;
+        letter-spacing: -6px;
+        max-width: 900px;
+      }
+      .highlight {
+        color: var(--accent);
+      }
+      .hero-copy {
+        font-size: 1.08rem;
+        color: var(--muted);
+        max-width: 620px;
+        margin: 30px 0;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 14px 20px;
+        border-radius: 12px;
+        font-weight: 700;
+        transition: 0.25s;
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+      }
+      .primary {
+        background: var(--accent);
+        color: #0b0d08;
+      }
+      .secondary {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .hero-card {
+        border: 1px solid var(--line);
+        background: linear-gradient(145deg, #171a20, #0d0f13);
+        border-radius: 28px;
+        padding: 10px;
+        box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+        transform: rotate(2deg);
+      }
+      .dashboard {
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #0b0d10;
+      }
+      .dash-top {
+        height: 46px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        gap: 7px;
+      }
+      .circle {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #555;
+      }
+      .dash-body {
+        padding: 25px;
+        min-height: 380px;
+      }
+      .dash-label {
+        font-size: 0.7rem;
+        color: #777;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+      .dash-title {
+        font-size: 2rem;
+        margin: 8px 0 25px;
+      }
+      .chart {
+        height: 145px;
+        border-bottom: 1px solid #272a30;
+        position: relative;
+        background: linear-gradient(
+          180deg,
+          rgba(217, 255, 82, 0.08),
+          transparent
+        );
+      }
+      .chart svg {
+        width: 100%;
+        height: 100%;
+      }
+      .metrics {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .metric {
+        background: #13161b;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 15px;
+      }
+      .metric small {
+        color: #777;
+      }
+      .metric strong {
+        display: block;
+        font-size: 1.35rem;
+        margin-top: 4px;
+      }
+
+      section {
+        padding: 125px 0;
+      }
+      .section-top {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        align-items: end;
+        margin-bottom: 50px;
+      }
+      .kicker {
+        color: var(--accent);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-weight: 700;
+      }
+      h2 {
+        font-size: clamp(2.5rem, 5vw, 4.7rem);
+        line-height: 0.95;
+        letter-spacing: -3px;
+        margin-top: 10px;
+      }
+      .section-top > p {
+        max-width: 460px;
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .big-card {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--surface);
+        padding: 35px;
+      }
+      .big-card p {
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+      .quote {
+        font-family: "Space Grotesk";
+        font-size: 2rem;
+        line-height: 1.1;
+        margin-bottom: 30px;
+      }
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+        background: var(--surface);
+      }
+      .stat {
+        text-align: center;
+        padding: 28px 10px;
+        border-right: 1px solid var(--line);
+      }
+      .stat:last-child {
+        border: 0;
+      }
+      .stat strong {
+        font: 700 2.5rem "Space Grotesk";
+        display: block;
+      }
+      .stat span {
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        padding: 28px;
+        transition: 0.3s;
+      }
+      .card:hover {
+        transform: translateY(-7px);
+        border-color: rgba(217, 255, 82, 0.35);
+        background: var(--surface2);
+      }
+      .service-number {
+        color: var(--accent);
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+      .card h3 {
+        font-size: 1.35rem;
+        margin: 40px 0 10px;
+      }
+      .card p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+      .tags {
+        display: flex;
+        gap: 7px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .tag {
+        font-size: 0.7rem;
+        color: #cfd1d6;
+        border: 1px solid var(--line);
+        padding: 5px 9px;
+        border-radius: 99px;
+      }
+
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+      .project {
+        min-height: 360px;
+        border-radius: 24px;
+        border: 1px solid var(--line);
+        padding: 28px;
+        display: flex;
+        align-items: end;
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, #171b20, #0d1014);
+      }
+      .project:nth-child(2) {
+        background: linear-gradient(135deg, #172016, #0c110e);
+      }
+      .project:nth-child(3) {
+        background: linear-gradient(135deg, #171522, #0e0d15);
+      }
+      .project:nth-child(4) {
+        background: linear-gradient(135deg, #1a1914, #10100d);
+      }
+      .project:before {
+        content: "";
+        position: absolute;
+        width: 220px;
+        height: 220px;
+        border-radius: 50%;
+        right: 8%;
+        top: 8%;
+        background: var(--accent);
+        filter: blur(80px);
+        opacity: 0.12;
+      }
+      .project-content {
+        position: relative;
+        z-index: 1;
+      }
+      .project small {
+        color: var(--accent);
+      }
+      .project h3 {
+        font-size: 2rem;
+        margin: 7px 0;
+      }
+      .project p {
+        color: var(--muted);
+        max-width: 480px;
+      }
+
+      .process {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 14px;
+      }
+      .step {
+        padding: 25px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: var(--surface);
+      }
+      .step b {
+        font: 700 2.5rem "Space Grotesk";
+        color: var(--accent);
+        opacity: 0.7;
+      }
+      .step h3 {
+        margin: 18px 0 7px;
+      }
+      .step p {
+        color: var(--muted);
+        font-size: 0.88rem;
+      }
+
+      .team {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+      }
+      .member {
+        text-align: center;
+      }
+      .avatar {
+        width: 78px;
+        height: 78px;
+        border-radius: 50%;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        background: var(--accent);
+        color: #10120a;
+        font: 700 1.5rem "Space Grotesk";
+      }
+      .member h3 {
+        margin: 0 0 5px;
+      }
+      .member p {
+        color: var(--muted);
+      }
+
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 16px;
+      }
+      .contact-card {
+        margin-top: 15px;
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: var(--surface);
+        padding: 32px;
+      }
+      .contact-card h3 {
+        font-size: 1.7rem;
+        margin-bottom: 10px;
+      }
+      .contact-card > p {
+        color: var(--muted);
+        margin-bottom: 25px;
+      }
+      .contact-list {
+        display: grid;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 13px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+      .contact-icon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 10px;
+        background: rgba(217, 255, 82, 0.1);
+        color: var(--accent);
+      }
+      .contact-item small {
+        display: block;
+        color: #777;
+      }
+      .contact-item strong {
+        font-size: 0.9rem;
+      }
+      form {
+        display: grid;
+        gap: 12px;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 15px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #0b0d10;
+        color: white;
+        outline: none;
+      }
+      input:focus,
+      textarea:focus {
+        border-color: var(--accent);
+      }
+      textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      footer {
+        border-top: 1px solid var(--line);
+        padding: 35px 0;
+        color: var(--muted);
+      }
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .footer b {
+        color: var(--text);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(25px);
+        transition: 0.7s;
+      }
+      .reveal.show {
+        opacity: 1;
+        transform: none;
+      }
+      .toast {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        background: #f4f4ef;
+        color: #10120a;
+        padding: 14px 18px;
+        border-radius: 12px;
+        font-weight: 700;
+        transform: translateY(120px);
+        transition: 0.3s;
+        z-index: 100;
+      }
+      .toast.show {
+        transform: none;
+      }
+
+      @media (max-width: 850px) {
+        .navlinks {
+          display: none;
+          position: absolute;
+          top: 72px;
+          left: 0;
+          width: 100%;
+          padding: 20px;
+          flex-direction: column;
+          background: #101217;
+          border: 1px solid var(--line);
+          border-radius: 15px;
+        }
+        .navlinks.open {
+          display: flex;
+        }
+        .nav-cta {
+          display: none;
+        }
+        .menu {
+          display: block;
+        }
+        .hero-grid,
+        .contact-wrap,
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-card {
+          display: none;
+        }
+        .services,
+        .team,
+        .process {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stat:nth-child(2) {
+          border-right: 0;
+        }
+        .stat:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 560px) {
+        h1 {
+          font-size: 4rem;
+          letter-spacing: -4px;
+        }
+        .section-top {
+          display: block;
+        }
+        .section-top > p {
+          margin-top: 18px;
+        }
+        .services,
+        .team,
+        .process,
+        .projects {
+          grid-template-columns: 1fr;
+        }
+        .projects .project {
+          min-height: 300px;
+        }
+        .footer {
+          flex-direction: column;
+        }
+        .hero {
+          padding-top: 130px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="grid-bg"></div>
+
+    <header>
+      <nav class="nav container">
+        <a href="#home" class="logo">AURION<span>.</span></a>
+        <div class="navlinks" id="navlinks">
+          <a href="#home">Home</a><a href="#about">About</a
+          ><a href="#services">Services</a> <a href="#work">Work</a
+          ><a href="#team">Team</a><a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Let's talk ↗</a>
+        <button class="menu" id="menu">☰</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="status"></span> Available for new projects
+            </div>
+            <h1>
+              Digital products that <span class="highlight">stand out.</span>
+            </h1>
+            <p class="hero-copy">
+              Aurion Web Developers Group builds premium websites, web
+              applications and digital experiences for ambitious businesses and
+              ideas.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="#work">Explore our work ↗</a>
+              <a class="btn secondary" href="#contact">Start a project</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="dashboard">
+              <div class="dash-top">
+                <i class="circle"></i><i class="circle"></i
+                ><i class="circle"></i>
+              </div>
+              <div class="dash-body">
+                <div class="dash-label">Aurion studio</div>
+                <div class="dash-title">Build. Launch. Grow.</div>
+                <div class="chart">
+                  <svg viewBox="0 0 500 145" preserveAspectRatio="none">
+                    <polyline
+                      points="0,120 60,105 110,115 160,70 215,82 270,48 330,63 385,25 445,42 500,8"
+                      fill="none"
+                      stroke="#d9ff52"
+                      stroke-width="3"
+                    />
+                  </svg>
+                </div>
+                <div class="metrics">
+                  <div class="metric">
+                    <small>Projects</small><strong>30+</strong>
+                  </div>
+                  <div class="metric">
+                    <small>Developers</small><strong>15+</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">01 — About Aurion</div>
+              <h2>Small team.<br />Serious ambition.</h2>
+            </div>
+            <p>
+              We combine design, development and strategy to turn ideas into
+              digital products people actually want to use.
+            </p>
+          </div>
+          <div class="about-grid">
+            <div class="big-card">
+              <div class="quote">
+                “We don't just make websites. We build digital experiences.”
+              </div>
+              <p>
+                Aurion is a developer group focused on modern, responsive and
+                reliable digital products. From a simple business website to a
+                complete web application, we build with purpose.
+              </p>
+            </div>
+            <div class="stats">
+              <div class="stat">
+                <strong>15+</strong><span>Developers</span>
+              </div>
+              <div class="stat"><strong>30+</strong><span>Projects</span></div>
+              <div class="stat"><strong>100%</strong><span>Passion</span></div>
+              <div class="stat">
+                <strong>24/7</strong><span>Support mindset</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">02 — Services</div>
+              <h2>Everything you<br />need to launch.</h2>
+            </div>
+            <p>
+              From strategy and interface design to development and maintenance,
+              we can take your project from concept to reality.
+            </p>
+          </div>
+          <div class="services">
+            <div class="card">
+              <span class="service-number">01 / DEVELOPMENT</span>
+              <h3>Web Development</h3>
+              <p>
+                Fast, responsive and professional websites built around your
+                brand and business goals.
+              </p>
+              <div class="tags">
+                <span class="tag">HTML</span><span class="tag">CSS</span
+                ><span class="tag">JavaScript</span>
+              </div>
+            </div>
+            <div class="card">
+              <span class="service-number">02 / APPLICATIONS</span>
+              <h3>Web Applications</h3>
+              <p>
+                Interactive platforms, dashboards, tools, forms and custom
+                functionality for real users.
+              </p>
+              <div class="tags">
+                <span class="tag">Frontend</span><span class="tag">Backend</span
+                ><span class="tag">APIs</span>
+              </div>
+            </div>
+            <div class="card">
+              <span class="service-number">03 / EXPERIENCE</span>
+              <h3>UI / UX Design</h3>
+              <p>
+                Clean interfaces and thoughtful user journeys designed to make
+                products easier to use.
+              </p>
+              <div class="tags">
+                <span class="tag">UI</span><span class="tag">UX</span
+                ><span class="tag">Responsive</span>
+              </div>
+            </div>
+            <div class="card">
+              <span class="service-number">04 / BUSINESS</span>
+              <h3>Business Websites</h3>
+              <p>
+                Premium online presence for restaurants, stores, startups,
+                creators and growing companies.
+              </p>
+              <div class="tags">
+                <span class="tag">Landing Pages</span
+                ><span class="tag">SEO</span>
+              </div>
+            </div>
+            <div class="card">
+              <span class="service-number">05 / SUPPORT</span>
+              <h3>Maintenance</h3>
+              <p>
+                Updates, optimization and technical improvements that keep your
+                website healthy.
+              </p>
+              <div class="tags">
+                <span class="tag">Updates</span
+                ><span class="tag">Optimization</span>
+              </div>
+            </div>
+            <div class="card">
+              <span class="service-number">06 / IDEAS</span>
+              <h3>Digital Strategy</h3>
+              <p>
+                Got an idea? We help turn the concept into a practical digital
+                product and clear roadmap.
+              </p>
+              <div class="tags">
+                <span class="tag">Strategy</span
+                ><span class="tag">Prototype</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="work">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">03 — Selected work</div>
+              <h2>Made with<br />purpose.</h2>
+            </div>
+            <p>
+              A selection of concepts and projects from the Aurion development
+              journey.
+            </p>
+          </div>
+          <div class="projects">
+            <div class="project">
+              <div class="project-content">
+                <small>01 / BUSINESS</small>
+                <h3>Alina Bistro</h3>
+                <p>
+                  Modern restaurant website with a polished menu and interactive
+                  customer experience.
+                </p>
+                <div class="tags">
+                  <span class="tag">Web Design</span
+                  ><span class="tag">Frontend</span>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-content">
+                <small>02 / PRODUCT</small>
+                <h3>Digital Dashboard</h3>
+                <p>
+                  A clean interface concept for managing business data and
+                  workflows.
+                </p>
+                <div class="tags">
+                  <span class="tag">UI/UX</span
+                  ><span class="tag">JavaScript</span>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-content">
+                <small>03 / STARTUP</small>
+                <h3>Aurion Labs</h3>
+                <p>
+                  An experimental space for testing new digital product ideas
+                  and prototypes.
+                </p>
+                <div class="tags">
+                  <span class="tag">Prototype</span
+                  ><span class="tag">Innovation</span>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="project-content">
+                <small>04 / OPEN SLOT</small>
+                <h3>Your Next Project</h3>
+                <p>Your business could be the next project featured here.</p>
+                <div class="tags"><span class="tag">Let's build</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">04 — Process</div>
+              <h2>Simple process.<br />Strong results.</h2>
+            </div>
+          </div>
+          <div class="process">
+            <div class="step">
+              <b>01</b>
+              <h3>Discover</h3>
+              <p>We understand your idea, goals, audience and requirements.</p>
+            </div>
+            <div class="step">
+              <b>02</b>
+              <h3>Design</h3>
+              <p>
+                We create the visual direction and plan the user experience.
+              </p>
+            </div>
+            <div class="step">
+              <b>03</b>
+              <h3>Build</h3>
+              <p>
+                Our developers turn the concept into a working digital product.
+              </p>
+            </div>
+            <div class="step">
+              <b>04</b>
+              <h3>Launch</h3>
+              <p>We test, improve and prepare the product for real users.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="team">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">05 — The people</div>
+              <h2>Meet the<br />Aurion team.</h2>
+            </div>
+            <p>
+              Developers working together to turn ideas into useful digital
+              products.
+            </p>
+          </div>
+          <div class="team">
+            <div class="card member">
+              <div class="avatar">A</div>
+              <h3>Adoniyas Sintayew</h3>
+              <p>Team Lead</p>
+            </div>
+            <div class="card member">
+              <div class="avatar">I</div>
+              <h3>Israel Dereje</h3>
+              <p>Developer</p>
+            </div>
+            <div class="card member">
+              <div class="avatar">B</div>
+              <h3>Basleel Lealem</h3>
+              <p>Developer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">06 — Contact</div>
+              <h2>
+                Have an idea?<br /><span class="highlight"
+                  >Let's build it.</span
+                >
+              </h2>
+            </div>
+            <p>
+              Tell us what you want to create and let's start a conversation.
+            </p>
+          </div>
+<div class="contact-card">
+  <h3>Start a conversation</h3>
+  <p>
+    For websites, web applications, redesigns or new digital ideas,
+    reach out directly.
+  </p>
+
+  <div class="contact-list">
+    <a class="contact-item" href="tel:0951915694">
+      <span class="contact-icon">☎</span>
+      <div>
+        <small>Phone</small>
+        <strong>0951915694</strong>
+      </div>
+    </a>
+
+    <a class="contact-item" href="mailto:israeldereje01@gmail.com">
+      <span class="contact-icon">✉</span>
+      <div>
+        <small>Email</small>
+        <strong>israeldereje01@gmail.com</strong>
+      </div>
+    </a>
+
+    <a class="contact-item" href="mailto:adoniyasisthe@gmail.com">
+      <span class="contact-icon">✉</span>
+      <div>
+        <small>Email</small>
+        <strong>adoniyasisthe@gmail.com</strong>
+      </div>
+    </a>
+  </div>
+</div>
+            <div class="contact-card">
+              <form id="contactForm">
+                <input id="name" placeholder="Your name" required />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your email"
+                  required
+                />
+                <input id="project" placeholder="What do you want to build?" />
+                <textarea
+                  id="message"
+                  placeholder="Tell us about your project..."
+                  required
+                ></textarea>
+                <button class="btn primary" type="submit">
+                  Send project request →
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer">
+        <span>© 2026 <b>Aurion Web Developers Group</b></span
+        ><span>Built with ideas + code.</span>
+      </div>
+    </footer>
+    <div class="toast" id="toast"></div>
+
+    <script>
+      const menu = document.getElementById("menu"),
+        nav = document.getElementById("navlinks");
+      menu.addEventListener("click", () => nav.classList.toggle("open"));
+      document
+        .querySelectorAll(".navlinks a")
+        .forEach((a) =>
+          a.addEventListener("click", () => nav.classList.remove("open")),
+        );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) e.target.classList.add("show");
+          });
+        },
+        { threshold: 0.12 },
+      );
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
+
+      const sections = [...document.querySelectorAll("section[id]")];
+      window.addEventListener("scroll", () => {
+        let current = "";
+        sections.forEach((s) => {
+          if (scrollY >= s.offsetTop - 180) current = s.id;
+        });
+        document
+          .querySelectorAll(".navlinks a")
+          .forEach((a) =>
+            a.classList.toggle(
+              "active",
+              a.getAttribute("href") === "#" + current,
+            ),
+          );
+      });
+
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const project =
+          document.getElementById("project").value.trim() || "New project";
+        const message = document.getElementById("message").value.trim();
+        const subject = encodeURIComponent(
+          "Aurion Project Request — " + project,
+        );
+        const body = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nProject: ${project}\n\n${message}`,
+        );
+        window.location.href = `mailto:israeldereje01@gmail.com,adoniyasisthe@gmail.com?subject=${subject}&body=${body}`;
+        const toast = document.getElementById("toast");
+        toast.textContent = "Opening your email app…";
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 3000);
+      });
+    </script>
+  </body>
+</html>
