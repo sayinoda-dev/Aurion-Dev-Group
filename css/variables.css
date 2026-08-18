@@ -1,0 +1,49 @@
+/* Design tokens — change brand colors, spacing, and typography here */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+:root {
+  /* Colors */
+  --color-background: #08090c;
+  --color-surface: #101217;
+  --color-surface-alt: #15171d;
+  --color-text: #f5f5f2;
+  --color-muted: #9b9da6;
+  --color-line: rgba(255, 255, 255, 0.09);
+  --color-accent: #d9ff52;
+  --color-accent-alt: #a7d92f;
+
+  /* Legacy aliases (used throughout section styles) */
+  --bg: var(--color-background);
+  --surface: var(--color-surface);
+  --surface2: var(--color-surface-alt);
+  --text: var(--color-text);
+  --muted: var(--color-muted);
+  --line: var(--color-line);
+  --accent: var(--color-accent);
+  --accent2: var(--color-accent-alt);
+
+  /* Layout */
+  --container-max: 1180px;
+  --max: var(--container-max);
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 18px;
+  --space-lg: 28px;
+  --space-xl: 50px;
+  --section-padding: 125px;
+
+  /* Typography */
+  --font-body: "DM Sans", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+
+  /* Borders & effects */
+  --radius-sm: 11px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+  --transition: 0.25s;
+  --transition-slow: 0.7s;
+}

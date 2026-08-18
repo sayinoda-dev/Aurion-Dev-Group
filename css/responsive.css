@@ -1,0 +1,90 @@
+/* Responsive breakpoints — tablet and mobile */
+
+@media (max-width: 850px) {
+  .navlinks {
+    display: none;
+    position: absolute;
+    top: 72px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    flex-direction: column;
+    background: #101217;
+    border: 1px solid var(--color-line);
+    border-radius: 15px;
+  }
+
+  .navlinks.open {
+    display: flex;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+
+  .hero-grid,
+  .contact-wrap,
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    display: none;
+  }
+
+  .services,
+  .team,
+  .process {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat:nth-child(2) {
+    border-right: 0;
+  }
+
+  .stat:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+
+@media (max-width: 560px) {
+  h1 {
+    font-size: 4rem;
+    letter-spacing: -4px;
+  }
+
+  .section-top {
+    display: block;
+  }
+
+  .section-top > p {
+    margin-top: var(--space-md);
+  }
+
+  .services,
+  .team,
+  .process,
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .projects .project {
+    min-height: 300px;
+  }
+
+  .footer {
+    flex-direction: column;
+  }
+
+  .hero {
+    padding-top: 130px;
+  }
+}

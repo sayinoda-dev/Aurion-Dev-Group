@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurion — Web Development Studio</title>
+    <meta
+      name="description"
+      content="Aurion Web Developers Group — premium websites, web applications and digital experiences."
+    />
+
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/sections.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+
+  <body>
+    <div class="grid-bg" aria-hidden="true"></div>
+
+    <!-- Header / Navigation -->
+    <header>
+      <nav class="nav container" aria-label="Main navigation">
+        <a href="#home" class="logo">AURION<span>.</span></a>
+        <div class="navlinks" id="navlinks"></div>
+        <a class="nav-cta" href="#contact">Let's talk ↗</a>
+        <button class="menu" id="menu" aria-label="Open menu">☰</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">
+              <span class="status"></span> 
+              Available for new projects
+            </div>
+            <h1>
+              Get Local Businesses <span class="highlight">Noticed</span> and <span class="highlight">Grow</span>
+            </h1>
+            <p class="hero-copy">
+              Aurion Web Developers Group designs and builds and build fast, modern websites for restaurants, gyms, shops and growing businesses.
+            <div class="actions">
+              <a class="btn primary" href="#work">Explore our work ↗</a>
+              <a class="btn secondary" href="#contact">Start a project</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="dashboard">
+              <div class="dash-top">
+                <i class="circle"></i><i class="circle"></i
+                ><i class="circle"></i>
+              </div>
+              <div class="dash-body">
+                <div class="dash-label">Aurion studio</div>
+                <div class="dash-title">Build. Launch. Grow.</div>
+                <div class="chart">
+                  <svg viewBox="0 0 500 145" preserveAspectRatio="none">
+                    <polyline
+                      points="0,120 60,105 110,115 160,70 215,82 270,48 330,63 385,25 445,42 500,8"
+                      fill="none"
+                      stroke="#d9ff52"
+                      stroke-width="3"
+                    />
+                  </svg>
+                </div>
+                <div class="metrics" id="hero-metrics"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section id="about">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">01 — About Aurion</div>
+              <h2>Small team.<br />Serious ambition.</h2>
+            </div>
+            <p>
+              We combine design, development and strategy to turn ideas into
+              digital products people actually want to use.
+            </p>
+          </div>
+          <div class="about-grid">
+            <div class="big-card">
+              <div class="quote">
+                “We don't just make websites. We build digital experiences.”
+              </div>
+              <p>
+                Aurion is a developer group focused on modern, responsive and
+                reliable digital products. From a simple business website to a
+                complete web application, we build with purpose.
+              </p>
+            </div>
+            <div class="stats" id="about-stats"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services -->
+      <section id="services">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">02 — Services</div>
+              <h2>Everything you<br />need to launch.</h2>
+            </div>
+            <p>
+              From strategy and interface design to development and maintenance,
+              we can take your project from concept to reality.
+            </p>
+          </div>
+          <div class="services" id="services-grid"></div>
+        </div>
+      </section>
+
+      <!-- Work / Projects -->
+      <section id="work">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">03 — Selected work</div>
+              <h2>Made with<br />purpose.</h2>
+            </div>
+            <p>
+              A selection of concepts and projects from the Aurion development
+              journey.
+            </p>
+          </div>
+          <div class="projects" id="projects-grid"></div>
+        </div>
+      </section>
+
+      <!-- Process -->
+      <section id="process">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">04 — Process</div>
+              <h2>Simple process.<br />Strong results.</h2>
+            </div>
+          </div>
+          <div class="process" id="process-grid"></div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section id="team">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">05 — The people</div>
+              <h2>Meet the<br />Aurion team.</h2>
+            </div>
+            <p>
+              Developers working together to turn ideas into useful digital
+              products.
+            </p>
+          </div>
+          <div class="team" id="team-grid"></div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container reveal">
+          <div class="section-top">
+            <div>
+              <div class="kicker">06 — Contact</div>
+              <h2>
+                Have an idea?<br /><span class="highlight"
+                  >Let's build it.</span
+                >
+              </h2>
+            </div>
+            <p>
+              Tell us what you want to create and let's start a conversation.
+            </p>
+          </div>
+
+          <div class="contact-wrap">
+            <div class="contact-card">
+              <h3>Start a conversation</h3>
+              <p>
+                For websites, web applications, redesigns or new digital ideas,
+                reach out directly.
+              </p>
+              <div class="contact-list" id="contact-list"></div>
+            </div>
+
+            <div class="contact-card">
+              <form id="contactForm">
+                <input id="name" placeholder="Your name" required />
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="Your email"
+                  required
+                />
+                <input id="project" placeholder="What do you want to build?" />
+                <textarea
+                  id="message"
+                  placeholder="Tell us about your project..."
+                  required
+                ></textarea>
+                <button class="btn primary" type="submit">
+                  Send project request →
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer">
+        <span>© 2026 <b>Aurion Web Developers Group</b></span>
+        <span>Built with ideas + code.</span>
+      </div>
+    </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <!-- Data -->
+    <script src="data/site.js"></script>
+    <script src="data/services.js"></script>
+    <script src="data/projects.js"></script>
+    <script src="data/team.js"></script>
+    <script src="data/process.js"></script>
+
+    <!-- Scripts -->
+    <script src="js/render.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/contact.js"></script>
+    <script src="js/main.js"></script>
+    <!-- vercel analytics -->
+    <script defer src="/_vercel/insights/script.js"></script> 
+  </body>
+</html>
