@@ -55,6 +55,32 @@ header {
   border-radius: var(--radius-sm);
   font-weight: 700;
 }
+.teamPort {
+  background: var(--color-accent);
+  color: #10120a;
+  padding: 8px 13px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  margin-right: 5px;
+
+}
+
+.teamRole{
+  margin-bottom: 15px;
+}
+
+.teamMvp{
+  gap: 14px;
+}
+
+.teamGit{
+  background: var(--color-accent);
+  color: #10120a;
+  padding: 8px 13px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  margin-left: 5px;
+}
 
 .menu {
   display: none;

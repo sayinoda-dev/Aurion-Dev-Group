@@ -90,8 +90,13 @@ const Render = {
         <div class="card member">
           <div class="avatar">${member.initial}</div>
           <h3>${member.name}</h3>
-          <p>${member.role}</p>
-        </div>`
+          <p class="teamRole" >${member.role}</p>
+          <div class="teamMvp">
+          <a class="teamPort" href="" >View Portfolio ↗</a>
+          <a class="teamGit" href=${member.github}>View Github ↗</a>
+          </div>
+        </div>
+        `
     ).join("");
   },
 
